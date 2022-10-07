@@ -92,9 +92,7 @@ describe("App test", () => {
     );
     const formopt1 = component.getByTestId("formopt1");
     const formopt2 = component.getByTestId("formopt2");
-    fireEvent.click(formopt1);
     fireEvent.change(formopt1, { target: { value: "sea" } });
-    fireEvent.click(formopt2);
     fireEvent.change(formopt2, { target: { value: "mountain" } });
     expect(formopt1.value).toBe("sea");
     expect(formopt2.value).toBe("mountain");
