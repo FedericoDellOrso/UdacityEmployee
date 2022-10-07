@@ -9,6 +9,26 @@ import Leaderboard from "../components/Leaderboard";
 import NewQuestion from "../components/NewQuestiion";
 
 describe("App test", () => {
+
+  it("Test NewPoll Form", () => {
+    const component = render(
+      <MemoryRouter>
+        <Provider store={store}>
+          <NavigationUda />
+          <Routes>
+            <Route path="/" element={<NewQuestion />} />
+          </Routes>
+        </Provider>
+      </MemoryRouter>
+    );
+    const formopt1 = component.getByTestId("formopt1");
+    const formopt2 = component.getByTestId("formopt2");
+    fireEvent.change(formopt1, { target: { value: "sea" } });
+    expect(formopt1.value).toBe("sea");
+    fireEvent.change(formopt2, { target: { value: "mountain" } });
+    expect(formopt2.value).toBe("mountain");
+  });
+
   it("Test Navbar", () => {
     const component = render(
       <MemoryRouter>
@@ -60,7 +80,6 @@ describe("App test", () => {
       </MemoryRouter>
     );
     const dropdown = component.getByTestId("dropdown");
-
     expect(dropdown).toBeInTheDocument();
   });
 
@@ -77,24 +96,5 @@ describe("App test", () => {
     );
     const newquestiontitle = component.getByTestId("newquestiontitle");
     expect(newquestiontitle).toBeInTheDocument();
-  });
-
-  it("Test NewPoll Form", () => {
-    const component = render(
-      <MemoryRouter>
-        <Provider store={store}>
-          <NavigationUda />
-          <Routes>
-            <Route path="/" element={<NewQuestion />} />
-          </Routes>
-        </Provider>
-      </MemoryRouter>
-    );
-    const formopt1 = component.getByTestId("formopt1");
-    const formopt2 = component.getByTestId("formopt2");
-    fireEvent.change(formopt1, { target: { value: "sea" } });
-    fireEvent.change(formopt2, { target: { value: "mountain" } });
-    expect(formopt1.value).toBe("sea");
-    expect(formopt2.value).toBe("mountain");
   });
 });
