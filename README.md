@@ -5,7 +5,7 @@ Second Project for the React Nanodegree Course
 ## Instruction
 ```
 git clone https://github.com/FedericoDellOrso/UdacityEmployee.git
-cd UdacityEmployee.git
+cd UdacityEmployee
 npm install
 npm start
 ```
