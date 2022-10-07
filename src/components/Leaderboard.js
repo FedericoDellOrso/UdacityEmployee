@@ -10,7 +10,7 @@ const Leaderboard = (props) => {
       <Table striped bordered hover className="m-1">
         <thead>
           <tr>
-            <th>Users</th>
+            <th data-testid="users">Users</th>
             <th>Answered</th>
             <th>Created</th>
           </tr>

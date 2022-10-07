@@ -20,7 +20,7 @@ const NavigationUda = (props) => {
           <Nav.Link as={Link} to="/">
             Home
           </Nav.Link>
-          <Nav.Link as={Link} to="/leaderboard">
+          <Nav.Link as={Link} to="/leaderboard" data-testid="Leaderboard">
             Leaderboard
           </Nav.Link>
           <Nav.Link as={Link} to="/add">

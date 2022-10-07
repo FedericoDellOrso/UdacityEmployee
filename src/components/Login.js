@@ -26,6 +26,7 @@ const Login = (props) => {
           id="dropdown-login"
           title="Choose User"
           onSelect={handleDropClick}
+          data-testid="dropdown"
         >
           {props.users.map((user) => {
             return (

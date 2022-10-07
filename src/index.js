@@ -9,7 +9,7 @@ import middleware from "./middleware";
 import { BrowserRouter as Router } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const store = createStore(reducer, middleware);
+export const store = createStore(reducer, middleware);
 
 ReactDOM.render(
   <Provider store={store}>
@@ -17,5 +17,5 @@ ReactDOM.render(
       <App />
     </Router>
   </Provider>,
-  document.getElementById("root")
+  document.getElementById("root") || document.createElement('div')
 );

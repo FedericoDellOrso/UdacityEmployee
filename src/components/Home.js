@@ -5,7 +5,7 @@ const Home = (props) => {
   console.log(props.completedQuestion);
   return (
     <div>
-      <h1>New Questions</h1>
+      <h1 data-testid="newquestion">New Questions</h1>
       <hr></hr>
       <CardQuestions questions={props.toDoQuestion} />
       <h1>Done</h1>

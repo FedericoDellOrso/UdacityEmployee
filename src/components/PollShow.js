@@ -52,7 +52,7 @@ const PollShow = (props) => {
   return (
     <div>
       {props.questionToShow.length === 0 ? (
-        <h1>404 error</h1>
+        <h1 data-testid="error404">404 error</h1>
       ) : (
         <div>
           <h1>{`Poll by ${props.questionToShow[0].author}`}</h1>

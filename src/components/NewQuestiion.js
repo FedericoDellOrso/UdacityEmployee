@@ -5,8 +5,10 @@ import { handleSaveQuestion } from "../actions/questions";
 import { connect } from "react-redux";
 import authedUser from "../reducers/authedUser";
 import Container from "react-bootstrap/Container";
+import { useNavigate } from "react-router-dom";
 
 const NewQuestion = (props) => {
+  let navigate = useNavigate();
   console.log(props.authedUser);
   const [inputOpt1, setInputOpt1] = useState("");
   const [inputOpt2, setInputOpt2] = useState("");
@@ -25,18 +27,16 @@ const NewQuestion = (props) => {
     event.preventDefault();
     console.log(inputOpt1);
     console.log(inputOpt2);
-    props.handleSaveQuestion(
-      inputOpt1,
-      inputOpt2,
-      props.authedUser,
-    );
+    props.handleSaveQuestion(inputOpt1, inputOpt2, props.authedUser);
     setInputOpt1("");
     setInputOpt2("");
-
+    setTimeout(() => {
+      navigate("/");
+    }, 100);
   };
   return (
-    <Container >
-      <h1>Would You Rather</h1>
+    <Container>
+      <h1 data-testid="newquestiontitle">Would You Rather</h1>
       <h3>Create Your Own Poll</h3>
       <Form onSubmit={handleSubmit}>
         <Form.Group className="mb-3" controlId="firstOption">
@@ -46,6 +46,7 @@ const NewQuestion = (props) => {
             placeholder="Option One"
             value={inputOpt1}
             onChange={handleChangeOpt1}
+            data-testid="formopt1"
           />
         </Form.Group>
 
@@ -56,9 +57,15 @@ const NewQuestion = (props) => {
             placeholder="Option Two"
             value={inputOpt2}
             onChange={handleChangeOpt2}
+            data-testid="formopt2"
           />
         </Form.Group>
-        <Button variant="primary" type="submit" disabled={inputOpt1==="" || inputOpt2===""}>
+        <Button
+          variant="primary"
+          type="submit"
+          disabled={inputOpt1 === "" || inputOpt2 === ""}
+          data-testid="buttonpoll"
+        >
           Submit
         </Button>
       </Form>
