@@ -25,3 +25,6 @@ npm run test
 a
 ```
 It's important to press `a`, after the command `npm run test`, to make sure that all of the test are executed
+
+#### Author
+Federico Dell'Orso
