@@ -31,7 +31,7 @@ const mapStateToProps = ({ authedUser, users, questions }) => {
   const doneQuestionsByUser = Object.keys(users[authedUser].answers);
   const completedQuestion = Object.values(questions)
     .filter((question) => doneQuestionsByUser.includes(question.id))
-    .sort((a, b) => b.timestamp > a.timestamp);
+    .sort((a, b) => b.timestamp - a.timestamp);
   const toDoQuestion = Object.values(questions)
     .filter((question) => !doneQuestionsByUser.includes(question.id))
     .sort((a, b) => b.timestamp - a.timestamp);
