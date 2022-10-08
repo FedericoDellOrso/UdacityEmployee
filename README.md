@@ -1,7 +1,8 @@
 # Employee Polls
 
 Second Project for the React Nanodegree Course,
-Employee Polls is an application that employees can use internally, every employee can access the application and create or vote a poll with two proposed solutions. The app offer a leaderboard too.
+Employee Polls is an application that employees can use internally, every employee can access the application and create or vote a poll with two proposed solutions. 
+Employees will be able to answer polls, see which polls they haven’t answered, see how other people have voted, post polls, and see the ranking of users on the leaderboard.
 
 ## Instruction
 These are theinstruction to install the project:
