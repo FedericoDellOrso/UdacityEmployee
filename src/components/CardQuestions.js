@@ -1,9 +1,10 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
-import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Row";
 import moment from "moment";
 import { Link } from "react-router-dom";
+import ListGroup from "react-bootstrap/ListGroup";
 
 const formatTime = (timestamp) => {
   let dateTimestamp = new Date(timestamp);
@@ -12,32 +13,25 @@ const formatTime = (timestamp) => {
 };
 
 const CardQuestions = ({ questions }) => {
-  // const handleClickShow = (event) => {
-
-  // };
   return (
     <Container>
-      <Row className="justify-content-center">
+      <ListGroup >
         {questions.map((question) => (
-          <Card className="m-2" style={{ width: "18rem" }} key={question.id}>
-            <Card.Body>
+          <ListGroup.Item key={question.id}>
+            <Card className="m-2"  >
               <Card.Body>
-                <Card.Title>{question.author}</Card.Title>
-                <Card.Subtitle className="mb-2 text-muted">
-                  {formatTime(question.timestamp)}
-                </Card.Subtitle>
+                  <Card.Title>{question.author}</Card.Title>
+                  <Card.Subtitle className="mb-2 text-muted">
+                    {formatTime(question.timestamp)}
+                  </Card.Subtitle>
+                <Link to={`/questions/${question.id}`}>
+                  <Button variant="outline-success">Show</Button>
+                </Link>
               </Card.Body>
-              <Link to={`/questions/${question.id}`}>
-              <Button
-                variant="outline-success"
-              >
-                Show
-              </Button>
-              </Link>
-            </Card.Body>
-          </Card>
+            </Card>
+          </ListGroup.Item>
         ))}
-      </Row>
+      </ListGroup>
     </Container>
   );
 };
