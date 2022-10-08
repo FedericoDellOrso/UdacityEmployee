@@ -23,4 +23,4 @@ in order to execute all of the test:
 npm run test
 a
 ```
-It's important to press `a`, after the command `npm run test` to make sure that all of the test are executed
+It's important to press `a`, after the command `npm run test`, to make sure that all of the test are executed
